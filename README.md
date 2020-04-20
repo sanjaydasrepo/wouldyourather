@@ -1,20 +1,16 @@
-# Chirper Project
+# Would you rather game
 
-This repo is a code-along with the first project in the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
+This is a small web based game build on react and redux .
 
-Most of the commits in this repository correspond to videos in the program.
+The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules.
 
-## Project Setup
 
-* clone the Project - `git@github.com:udacity/reactnd-chirper-app.git`
-* install the dependencies - `npm install`
+To start the project:
 
-## Contributing
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
 
-Because this is a code-along project and the commits correspond to specific videos in the program, we will not be accepting pull requests.
 
-If you feel like there's a major problem, please open an issue to discuss the problem and potential resolution.
+## Create React App
 
-## License
-
-MIT
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
