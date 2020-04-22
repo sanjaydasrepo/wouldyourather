@@ -1,11 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
-import {
-  Route,
-  Router,
-  Redirect,
-  Switch,
-} from 'react-router-dom';
+import {Route, Router, Redirect, Switch} from 'react-router-dom';
 import {createBrowserHistory} from 'history';
 import LoadingBar from 'react-redux-loading-bar';
 import Nav from './Nav';
@@ -30,42 +25,30 @@ class App extends Component {
         <Fragment>
 
           <div className="container">
-          <header>
-                <LoadingBar />
-              </header>
+            <header>
+              <LoadingBar />
+            </header>
 
-          { this.props.authedUser && <Nav user={this.props.user} /> }
+            <Nav user={this.props.user} />
 
             <div className="base-layout">
 
-              
-              {this.props.authedUser === null
-                ? <Fragment>
-                    <Route path="/">
-                      <Redirect to="/signin" />
-                    </Route>
-                    <Route path="/signin" component={SignIn} />
-                  </Fragment>
-                : <Fragment>
-                    
-                    <Switch>
-                      <Route exact path="/">
-                        <Redirect to="/home" />
-                      </Route>
-
-                      <Route path="/home" exact component={Dashboard} />
-                      <Route path="/logout" component={Logout} />
-                      <Route
-                        path="/question/:question_id"
-                        component={QuestionView}
-                      />
-                      <Route path="/add" component={QuestionNew} />
-                      <Route path="/leaderboard" component={LeaderBoard} />
-                      <Route path="*">
-                        <NoMatch />
-                      </Route>
-                    </Switch>
-                  </Fragment>}
+              <Fragment>
+                <Switch>
+                 
+                  <Route path="/" exact component={Dashboard} />
+                  <Route path="/logout" component={Logout} />
+                  <Route exact
+                    path="/question/:question_id"
+                    component={QuestionView}
+                  />
+                  <Route path="/add" exact component={QuestionNew} />
+                  <Route path="/leaderboard" exact component={LeaderBoard} />
+                  <Route path="*">
+                    <NoMatch />
+                  </Route>
+                </Switch>
+              </Fragment>
             </div>
           </div>
 

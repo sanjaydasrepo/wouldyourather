@@ -1,6 +1,7 @@
 import React, {Component ,Fragment} from 'react';
 import {handleAddQuestion} from '../actions/questions';
 import {connect} from 'react-redux';
+import SignIn from './SignIn';
 class QuestionNew extends Component {
   state = {
     optionOneText: '',
@@ -27,7 +28,7 @@ class QuestionNew extends Component {
     return (
       <Fragment>
         {this.props.authedUser === null
-          ? ''
+          ? <SignIn/>
           : <div className="form-wrapper">
               <h3> Would you rather ? </h3>
               <form onSubmit={this.handleSubmit.bind (this)} className='form'>

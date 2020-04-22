@@ -3,14 +3,19 @@ import {connect} from 'react-redux';
 
 import {getOptionPrettifyText} from '../utils/helper';
 import {Link} from 'react-router-dom';
+import SignIn from './SignIn';
 
 class Question extends Component {
   render () {
-    const {question, avatar, isLoading} = this.props;
-  
+    const {question, avatar, isLoading ,authedUser } = this.props;
+    
+    if( authedUser === null ){
+      return ( <SignIn/> )
+    }
+
     return (
       <Fragment>
-
+        
         {isLoading === true
           ? ''
           : <div className="question">
@@ -34,6 +39,7 @@ class Question extends Component {
                 </div>
               </div>
             </div>}
+            
       </Fragment>
     );
   }
@@ -51,6 +57,7 @@ const mapStateToProps = ({questions, users ,authedUser }, {id}) => {
     question: question,
     avatar: avatar,
     isLoading: users.length > 0 ? true : false,
+    authedUser
   };
 };
 

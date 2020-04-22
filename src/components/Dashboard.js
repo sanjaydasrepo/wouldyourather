@@ -6,6 +6,7 @@ import 'react-tabs/style/react-tabs.css';
 import {getUnAnsweredQuestions, getAnsweredQuestions} from '../utils/helper';
 import Question from './Question';
 import LeaderBoard from './LeaderBoard';
+import SignIn from './SignIn';
 
 class Dashboard extends Component {
   state = {
@@ -46,7 +47,7 @@ class Dashboard extends Component {
     return (
       <div>
         {this.props.authedUser === null
-          ? ""
+          ? <SignIn/>
           : this.getHomeLayout ()}
       </div>
     );

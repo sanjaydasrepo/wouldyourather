@@ -12,6 +12,7 @@ import {
 
 import {handleVoteQuestion} from '../actions/questions';
 import { Redirect } from 'react-router-dom';
+import SignIn from './SignIn';
 
 class QuestionView extends Component {
   state = {
@@ -161,7 +162,7 @@ class QuestionView extends Component {
     return (
       <div>
         {authedUser === null
-          ? ''
+          ? <SignIn/>
           : <div>
               {isLoading === true
                 ? ''

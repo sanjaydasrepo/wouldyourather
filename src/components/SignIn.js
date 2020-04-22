@@ -10,7 +10,6 @@ class SignIn extends Component {
   handleSubmit (e) {
     e.preventDefault ();
     this.props.dispatch (setAuthedUser (this.state.val));
-    this.props.history.push ('/home');
   }
   handleChange (e) {
     const val = e.target.value || null;

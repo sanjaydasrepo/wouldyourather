@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {getLeaderBoardList} from '../utils/helper';
+import SignIn from './SignIn';
 
 class LeaderBoard extends Component {
   getListItem (item) {
@@ -38,6 +39,7 @@ class LeaderBoard extends Component {
     const {list } = this.props;
     return (
       <div className="leaderboard">
+       <h4> LeaderBoard </h4>
         <ul>
           {list.map (item => (
             <li key={item.id}> {this.getListItem (item)} </li>
@@ -49,15 +51,14 @@ class LeaderBoard extends Component {
   render () {
     const { isLoading ,authedUser } = this.props;
     return (
-      <div className="leaderboard">
-        <h4> LeaderBoard </h4>
+      <Fragment>
         { authedUser === null
-          ? ''
+          ? <SignIn/>
           : <Fragment>
               { isLoading ? '': this.getLeaderBoard ()}
             </Fragment>}
 
-      </div>
+      </Fragment>
     );
   }
 }
