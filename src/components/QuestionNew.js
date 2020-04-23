@@ -21,7 +21,7 @@ class QuestionNew extends Component {
       await this.props.dispatch (
         handleAddQuestion ({optionOneText, optionTwoText})
       );
-      this.props.history.push ('/home');
+      this.props.history.push ('/');
     }
   }
   render () {
